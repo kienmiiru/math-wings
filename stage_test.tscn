@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6ut806ju4orf"]
+
+[ext_resource type="Script" uid="uid://ccrbq8t784res" path="res://stage_test.gd" id="1_u8h50"]
+[ext_resource type="PackedScene" uid="uid://h88rsodmxcqt" path="res://standard_pipe.tscn" id="2_7wvc7"]
+[ext_resource type="PackedScene" uid="uid://cuxdc162kncle" path="res://bird.tscn" id="3_sqgv7"]
+[ext_resource type="PackedScene" uid="uid://beoxmhg5t3at0" path="res://two_choice_pipe.tscn" id="4_7wvc7"]
+
+[node name="stage_test" type="Node"]
+script = ExtResource("1_u8h50")
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(100, 240)
+
+[node name="StandardPipe" parent="." instance=ExtResource("2_7wvc7")]
+position = Vector2(305, 240)
+
+[node name="StandardPipe3" parent="." instance=ExtResource("2_7wvc7")]
+position = Vector2(671, 75)
+
+[node name="StandardPipe4" parent="." instance=ExtResource("2_7wvc7")]
+position = Vector2(889, 278)
+
+[node name="StandardPipe5" parent="." instance=ExtResource("2_7wvc7")]
+position = Vector2(1109, 208)
+
+[node name="Bird" parent="." instance=ExtResource("3_sqgv7")]
+
+[node name="TwoChoicePipe" parent="." instance=ExtResource("4_7wvc7")]
+position = Vector2(1267, 200)
+answer_1_text = "12"
+answer_2_text = "23"
+
+[node name="TwoChoicePipe2" parent="." instance=ExtResource("4_7wvc7")]
+position = Vector2(1490, 210)
+answer_1_text = "12"
+answer_2_text = "54"
+
+[node name="TwoChoicePipe3" parent="." instance=ExtResource("4_7wvc7")]
+position = Vector2(1719, 242)
+
+[connection signal="collide" from="Bird" to="." method="_on_bird_collide"]

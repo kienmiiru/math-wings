@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://h88rsodmxcqt"]
+
+[ext_resource type="Texture2D" uid="uid://dykthdh64lvpx" path="res://icon.svg" id="1_chirh"]
+[ext_resource type="Script" uid="uid://b4b2eojvoy6m8" path="res://standard_pipe.gd" id="1_ofd2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofd2n"]
+size = Vector2(32, 330)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhxxb"]
+size = Vector2(32, 330)
+
+[node name="StandardPipe" type="Area2D" groups=["standard_pipes"]]
+collision_mask = 0
+script = ExtResource("1_ofd2n")
+
+[node name="TopSprite" type="Sprite2D" parent="."]
+position = Vector2(-16, -405)
+scale = Vector2(0.25, 2.5781252)
+texture = ExtResource("1_chirh")
+centered = false
+
+[node name="TopCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -240)
+shape = SubResource("RectangleShape2D_ofd2n")
+
+[node name="BottomSprite" type="Sprite2D" parent="."]
+position = Vector2(-16, 76)
+scale = Vector2(0.25, 2.5781252)
+texture = ExtResource("1_chirh")
+centered = false
+
+[node name="BottomCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 241)
+shape = SubResource("RectangleShape2D_yhxxb")

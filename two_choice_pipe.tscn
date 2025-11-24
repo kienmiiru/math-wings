@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://beoxmhg5t3at0"]
+
+[ext_resource type="Script" uid="uid://0yadr3k0tcge" path="res://two_choice_pipe.gd" id="1_knw33"]
+[ext_resource type="Texture2D" uid="uid://dykthdh64lvpx" path="res://icon.svg" id="2_anlfo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofd2n"]
+size = Vector2(32, 330)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhxxb"]
+size = Vector2(32, 330)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knw33"]
+size = Vector2(32, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anlfo"]
+size = Vector2(32, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acfjr"]
+size = Vector2(32, 150)
+
+[node name="TwoChoicePipe" type="Area2D" groups=["standard_pipes"]]
+collision_mask = 0
+script = ExtResource("1_knw33")
+
+[node name="TopSprite" type="Sprite2D" parent="."]
+position = Vector2(-16, -530)
+scale = Vector2(0.25, 2.5781252)
+texture = ExtResource("2_anlfo")
+centered = false
+
+[node name="TopCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -365)
+shape = SubResource("RectangleShape2D_ofd2n")
+
+[node name="BottomSprite" type="Sprite2D" parent="."]
+position = Vector2(-16, 200)
+scale = Vector2(0.25, 2.5781252)
+texture = ExtResource("2_anlfo")
+centered = false
+
+[node name="BottomCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 365)
+shape = SubResource("RectangleShape2D_yhxxb")
+
+[node name="MiddleSprite" type="Sprite2D" parent="."]
+position = Vector2(-16, -50)
+scale = Vector2(0.25, 0.78125)
+texture = ExtResource("2_anlfo")
+centered = false
+
+[node name="MiddleCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.8146973e-06)
+shape = SubResource("RectangleShape2D_knw33")
+
+[node name="Answer1" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 102.0
+offset_right = 20.0
+offset_bottom = 147.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "67"
+horizontal_alignment = 1
+
+[node name="Answer2" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -153.0
+offset_right = 20.0
+offset_bottom = -108.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "42"
+horizontal_alignment = 1
+
+[node name="UpperBlocker" type="CollisionShape2D" parent="."]
+position = Vector2(0, -125)
+shape = SubResource("RectangleShape2D_anlfo")
+disabled = true
+
+[node name="LowerBlocker" type="CollisionShape2D" parent="."]
+position = Vector2(0, 125)
+shape = SubResource("RectangleShape2D_acfjr")
+disabled = true
