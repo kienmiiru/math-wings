@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://brfvt7urs0mpw"]
+
+[ext_resource type="Script" uid="uid://cy8hhtnrnpiqd" path="res://stage2/stage_2.gd" id="1_wjinu"]
+[ext_resource type="PackedScene" uid="uid://cuxdc162kncle" path="res://bird.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://bird_weapon.tscn" id="2_db2ir"]
+[ext_resource type="PackedScene" uid="uid://enwyx6pxumig" path="res://hud_stage2.tscn" id="5_o3ub0"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_wjinu")
+
+[node name="Bird" parent="." instance=ExtResource("2")]
+position = Vector2(59, 230)
+
+[node name="BirdWeapon" parent="Bird" instance=ExtResource("2_db2ir")]
+
+[node name="HUDStage2" parent="." instance=ExtResource("5_o3ub0")]
+
+[connection signal="collide" from="Bird" to="." method="_on_bird_collide"]

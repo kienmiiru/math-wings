@@ -1,56 +1,53 @@
-[gd_scene load_steps=8 format=3 uid="uid://beoxmhg5t3at0"]
+[gd_scene load_steps=8 format=3 uid="uid://dg1oaw5e07q3t"]
 
-[ext_resource type="Script" uid="uid://0yadr3k0tcge" path="res://two_choice_pipe.gd" id="1_knw33"]
-[ext_resource type="Texture2D" uid="uid://dykthdh64lvpx" path="res://icon.svg" id="2_anlfo"]
+[ext_resource type="Script" uid="uid://dk1km0h15aqiv" path="res://stage2/breakable_pipe.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dykthdh64lvpx" path="res://icon.svg" id="2"]
+[ext_resource type="PackedScene" uid="uid://1rqgyhaaymqq" path="res://stage2/glass.tscn" id="3_p88xf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofd2n"]
+[sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(32, 330)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhxxb"]
-size = Vector2(32, 330)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_knw33"]
+[sub_resource type="RectangleShape2D" id="2"]
 size = Vector2(32, 100)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_anlfo"]
+[sub_resource type="RectangleShape2D" id="3"]
 size = Vector2(32, 150)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_acfjr"]
+[sub_resource type="RectangleShape2D" id="4"]
 size = Vector2(32, 150)
 
-[node name="TwoChoicePipe" type="Area2D" groups=["standard_pipes"]]
-collision_mask = 0
-script = ExtResource("1_knw33")
+[node name="BreakablePipe" type="Area2D" groups=["pipe_collision"]]
+script = ExtResource("1")
 
 [node name="TopSprite" type="Sprite2D" parent="."]
 position = Vector2(-16, -530)
 scale = Vector2(0.25, 2.5781252)
-texture = ExtResource("2_anlfo")
+texture = ExtResource("2")
 centered = false
 
 [node name="TopCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -365)
-shape = SubResource("RectangleShape2D_ofd2n")
+shape = SubResource("1")
 
 [node name="BottomSprite" type="Sprite2D" parent="."]
 position = Vector2(-16, 200)
 scale = Vector2(0.25, 2.5781252)
-texture = ExtResource("2_anlfo")
+texture = ExtResource("2")
 centered = false
 
 [node name="BottomCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 365)
-shape = SubResource("RectangleShape2D_yhxxb")
+shape = SubResource("1")
 
 [node name="MiddleSprite" type="Sprite2D" parent="."]
 position = Vector2(-16, -50)
 scale = Vector2(0.25, 0.78125)
-texture = ExtResource("2_anlfo")
+texture = ExtResource("2")
 centered = false
 
 [node name="MiddleCollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3.8146973e-06)
-shape = SubResource("RectangleShape2D_knw33")
+position = Vector2(0, -3.81)
+shape = SubResource("2")
 
 [node name="Answer1" type="Label" parent="."]
 anchors_preset = 5
@@ -80,8 +77,16 @@ horizontal_alignment = 1
 
 [node name="UpperBlocker" type="CollisionShape2D" parent="."]
 position = Vector2(0, -125)
-shape = SubResource("RectangleShape2D_anlfo")
+shape = SubResource("3")
 
 [node name="LowerBlocker" type="CollisionShape2D" parent="."]
 position = Vector2(0, 125)
-shape = SubResource("RectangleShape2D_acfjr")
+shape = SubResource("4")
+
+[node name="UpperGlass" parent="." instance=ExtResource("3_p88xf")]
+position = Vector2(0, -125)
+
+[node name="LowerGlass" parent="." instance=ExtResource("3_p88xf")]
+position = Vector2(0, 120)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -4,7 +4,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rtl8c"]
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" groups=["bird_bullets"]]
 script = ExtResource("1_v7oki")
 
 [node name="ColorRect" type="ColorRect" parent="."]

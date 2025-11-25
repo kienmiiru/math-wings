@@ -1,6 +1,6 @@
 extends Node
 
-@export var pipe_scene : PackedScene = preload("res://two_choice_pipe.tscn")
+@export var pipe_scene : PackedScene = preload("res://stage1/two_choice_pipe.tscn")
 @export var question_generator_res : Resource = preload("res://question_generator.gd")
 
 var score := 0
@@ -12,7 +12,7 @@ var lost = false
 var current_pipe
 
 func _ready():
-	get_node("ScoreLabel").text = "Score: %d" % score
+	$HUDStage1.update_score(score)
 	spawn_pipe()
 	current_pipe = pipes[0]
 
@@ -21,8 +21,8 @@ func _process(delta):
 	if spawn_timer > spawn_interval and not lost:
 		spawn_pipe()
 		spawn_timer = 0
-	
-	$QuestionLabel.text = current_pipe.question_text
+
+	$HUDStage1.update_question(current_pipe.question_text)
 
 	# Hapus pipe yang sudah lewat layar kiri
 	for pipe in pipes:
@@ -32,7 +32,7 @@ func _process(delta):
 	
 	if current_pipe.position.x <= $Bird.position.x:
 		score += 1
-		$ScoreLabel.text = "Score: %d" % score
+		$HUDStage1.update_score(score)
 		current_pipe = pipes[1]
 
 func spawn_pipe():
@@ -43,27 +43,10 @@ func spawn_pipe():
 	pipe.answer_1_text = q["answer_1"]
 	pipe.answer_2_text = q["answer_2"]
 	pipe.is_answer_top = q["is_answer_top"]
-	pipe.add_to_group("standard_pipes")
+	pipe.add_to_group("pipe_collision")
 	add_child(pipe)
 	pipes.append(pipe)
 
-# katanya biar godot banget jangan pake kayak gini, pake signal aja
-#func _on_pipe_area_entered(area, pipe):
-	## Deteksi jika Bird melewati pipe atau collision
-	## Cek jawaban, update skor
-	## Asumsi: area/celahan punya nama/cara identifikasi, Anda dapat perluas sinyalnya jika belum ada
-	## Tambahkan logika sesuai kebutuhan
-	#if area.name == "Bird":
-		## Jawaban benar
-		#score += 1
-		#get_node("ScoreLabel").text = "Score: %d" % score
-		## Hapus pipe
-		#pipes.erase(pipe)
-		#get_node("QuestionLabel").text = pipes[0].question_text
-		#pipe.queue_free()
-	## Jika butuh penalti atau nyawa, tambahkan di sini
-
-
 func _on_bird_collide() -> void:
-	get_tree().call_group("standard_pipes", "stop")
+	get_tree().call_group("pipe_collision", "stop")
 	lost = true
