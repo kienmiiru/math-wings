@@ -10,5 +10,4 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_bird_collide() -> void:
-	print("emitted")
 	get_tree().call_group("standard_pipes", "stop")
