@@ -5,6 +5,9 @@ var velocity = Vector2.ZERO
 const GRAVITY = 1000.0
 const JUMP_FORCE = -350.0
 
+var hp := 1.0 # Representasi 100% HP
+var alive := true
+
 func _physics_process(delta):
 	velocity.y += GRAVITY * delta
 
@@ -18,13 +21,33 @@ func start(pos):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	_update_hp_display()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
+func _update_hp_display():
+	var stage = get_tree().current_scene
+	if stage.has_node("HUDStage1"):
+		stage.get_node("HUDStage1").update_hp(hp)
+	elif stage.has_node("HUDStage2"):
+		stage.get_node("HUDStage2").update_hp(hp)
+
+func take_damage(amount: float):
+	if !alive:
+		return
+	hp -= amount
+	if hp <= 0.0:
+		hp = 0.0
+		alive = false
+		emit_signal("collide")
+	_update_hp_display()
+
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("pipe_collision"):
-		collide.emit()
-		$CollisionShape2D.set_deferred("disabled", true)
+	if area.is_in_group("pipe_collision") && alive && not area.is_hit:
+		area.is_hit = true
+		take_damage(0.15)
+		#for child in area.get_children():
+			#if child is CollisionShape2D:
+				#child.set_deferred("disabled", true)

@@ -4,6 +4,7 @@ extends Node2D
 @export var answer_1_text = ""
 @export var answer_2_text = ""
 @export var is_answer_top = true
+var is_hit = false
 
 func stop():
 	speed = 0

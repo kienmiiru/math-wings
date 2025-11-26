@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://d31u511awprj0"]
+
+[ext_resource type="PackedScene" uid="uid://h88rsodmxcqt" path="res://stage3/standard_pipe.tscn" id="2_7wvc7"]
+[ext_resource type="PackedScene" uid="uid://cuxdc162kncle" path="res://bird.tscn" id="3_sqgv7"]
+[ext_resource type="PackedScene" uid="uid://beoxmhg5t3at0" path="res://stage1/two_choice_pipe.tscn" id="4_7wvc7"]
+
+[sub_resource type="GDScript" id="GDScript_u8h50"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	$Bird.position = $StartPosition.position
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _on_bird_collide() -> void:
+	get_tree().call_group(\"pipe_collision\", \"stop\")
+"
+
+[node name="stage_test" type="Node"]
+script = SubResource("GDScript_u8h50")
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(100, 240)
+
+[node name="StandardPipe" parent="." instance=ExtResource("2_7wvc7")]
+position = Vector2(305, 240)
+
+[node name="StandardPipe3" parent="." instance=ExtResource("2_7wvc7")]
+position = Vector2(671, 75)
+
+[node name="StandardPipe4" parent="." instance=ExtResource("2_7wvc7")]
+position = Vector2(889, 278)
+
+[node name="StandardPipe5" parent="." instance=ExtResource("2_7wvc7")]
+position = Vector2(1109, 208)
+
+[node name="Bird" parent="." instance=ExtResource("3_sqgv7")]
+
+[node name="TwoChoicePipe" parent="." instance=ExtResource("4_7wvc7")]
+position = Vector2(1267, 200)
+answer_1_text = "12"
+answer_2_text = "23"
+
+[node name="TwoChoicePipe2" parent="." instance=ExtResource("4_7wvc7")]
+position = Vector2(1490, 210)
+answer_1_text = "12"
+answer_2_text = "54"
+
+[node name="TwoChoicePipe3" parent="." instance=ExtResource("4_7wvc7")]
+position = Vector2(1719, 242)
+
+[connection signal="collide" from="Bird" to="." method="_on_bird_collide"]

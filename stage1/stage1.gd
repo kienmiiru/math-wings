@@ -31,8 +31,9 @@ func _process(delta):
 			pipe.queue_free()
 	
 	if current_pipe.position.x <= $Bird.position.x:
-		score += 1
-		$HUDStage1.update_score(score)
+		if not current_pipe.is_hit:
+			score += 1
+		$	HUDStage1.update_score(score)
 		current_pipe = pipes[1]
 
 func spawn_pipe():
@@ -48,5 +49,6 @@ func spawn_pipe():
 	pipes.append(pipe)
 
 func _on_bird_collide() -> void:
-	get_tree().call_group("pipe_collision", "stop")
-	lost = true
+	if $Bird.hp <= 0.0:
+		get_tree().call_group("pipe_collision", "stop")
+		lost = true
