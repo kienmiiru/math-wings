@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://dpu16fqusxgun"]
 
-[ext_resource type="Script" path="res://stage3/hud_stage3.gd" id=1]
+[ext_resource type="Script" uid="uid://bhy8ga0l64k0a" path="res://stage3/hud_stage3.gd" id="1"]
 
 [node name="HUDStage3" type="CanvasLayer"]
 script = ExtResource("1")
@@ -29,10 +29,9 @@ offset_bottom = 38.0
 text = "Score: 0"
 
 [node name="QuestionLabel" type="Label" parent="."]
-offset_left = 300.0
-offset_top = 77.0
-offset_right = 600.0
-offset_bottom = 110.0
+offset_left = 181.0
+offset_top = 93.0
+offset_right = 481.0
+offset_bottom = 126.0
 text = "1 + 1 = ?"
 horizontal_alignment = 1
-visible = true

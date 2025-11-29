@@ -1,0 +1,104 @@
+[gd_scene load_steps=22 format=3 uid="uid://puibd4woc2e"]
+
+[ext_resource type="Texture2D" uid="uid://c0p10hyoxxqfr" path="res://assets/prof/prof_idle/profstasis1.png" id="1_txokj"]
+[ext_resource type="Texture2D" uid="uid://bjg6sgiy16oj" path="res://assets/prof/prof_idle/profstasis2.png" id="2_1e50g"]
+[ext_resource type="Texture2D" uid="uid://hkh2nq6vynxs" path="res://assets/prof/prof_idle/profstasis3.png" id="3_5owxh"]
+[ext_resource type="Texture2D" uid="uid://6oaq4kqn8vmg" path="res://assets/prof/prof_idle/profstasis4.png" id="4_suu2e"]
+[ext_resource type="Texture2D" uid="uid://v5pr1ok6ht5h" path="res://assets/prof/prof_idle/profstasis5.png" id="5_osfwy"]
+[ext_resource type="Texture2D" uid="uid://d28c5liyaarje" path="res://assets/prof/prof_idle/profstasis6.png" id="6_iwheo"]
+[ext_resource type="Texture2D" uid="uid://q2k62y2krs2o" path="res://assets/prof/prof_idle/profstasis7.png" id="7_yjh1p"]
+[ext_resource type="Texture2D" uid="uid://dnq3hijde0dhn" path="res://assets/prof/prof_attack/profattack1.png" id="8_havu7"]
+[ext_resource type="Texture2D" uid="uid://cm0yrtaai2v3g" path="res://assets/prof/prof_attack/profattack2.png" id="9_stbnd"]
+[ext_resource type="Texture2D" uid="uid://bnidp43yjs85e" path="res://assets/prof/prof_attack/profattack3.png" id="10_b8ru5"]
+[ext_resource type="Texture2D" uid="uid://bnl7ieeio0kf4" path="res://assets/prof/prof_attack/profattack4.png" id="11_oqluk"]
+[ext_resource type="Texture2D" uid="uid://n5vqlah4kx62" path="res://assets/prof/prof_attack/profattack5.png" id="12_b7mhq"]
+[ext_resource type="Texture2D" uid="uid://dgtntlnqnrn0s" path="res://assets/prof/prof_attack/profattack6.png" id="13_cg5lj"]
+[ext_resource type="Texture2D" uid="uid://du6jui2v7bnqo" path="res://assets/prof/prof_attack/profattack7.png" id="14_st57q"]
+[ext_resource type="Texture2D" uid="uid://d6ltcwvkqlro" path="res://assets/prof/prof_attack/profattack8.png" id="15_3b6bu"]
+[ext_resource type="Texture2D" uid="uid://djy4exr61crl6" path="res://assets/prof/prof_attack/profattack9.png" id="16_jrk72"]
+[ext_resource type="Texture2D" uid="uid://fqghsu7rfkbh" path="res://assets/prof/prof_attack/profattack10.png" id="17_ty7r8"]
+[ext_resource type="Texture2D" uid="uid://c6jq7j24yy32x" path="res://assets/prof/prof_attack/profattack11.png" id="18_xc7rh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_havu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_txokj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1e50g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5owxh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_suu2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_osfwy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iwheo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yjh1p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_stbnd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_havu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_stbnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_b8ru5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_oqluk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_b7mhq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_cg5lj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_st57q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3b6bu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jrk72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ty7r8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_xc7rh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b8ru5"]
+radius = 47.296936
+
+[node name="Boss1" type="Area2D"]
+
+[node name="Idle" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_havu7")
+
+[node name="Attack" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_stbnd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b8ru5")
