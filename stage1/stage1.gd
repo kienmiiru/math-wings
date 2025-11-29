@@ -33,7 +33,7 @@ func _process(delta):
 	if current_pipe.position.x <= $Bird.position.x:
 		if not current_pipe.is_hit:
 			score += 1
-		$	HUDStage1.update_score(score)
+		$HUDStage1.update_score(score)
 		current_pipe = pipes[1]
 
 func spawn_pipe():

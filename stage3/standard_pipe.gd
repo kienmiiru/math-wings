@@ -1,5 +1,6 @@
 extends Node2D
 @export var speed := 300.0
+var is_hit = false
 
 func stop():
 	speed = 0
