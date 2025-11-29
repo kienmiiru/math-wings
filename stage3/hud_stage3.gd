@@ -9,7 +9,6 @@ func update_question(question):
 	$QuestionLabel.text = question
 
 func update_hp(percentage: float):
-	print('hp baru')
 	$HPBar.value = percentage * 100
 
 func update_score(val: int):
