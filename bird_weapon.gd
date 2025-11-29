@@ -20,3 +20,7 @@ func shoot():
 	bullet.global_position = global_position
 	bullet.rotation = direction.angle()
 	get_tree().current_scene.add_child(bullet)
+	get_parent().get_node('PlayerIdle').hide()
+	get_parent().get_node('PlayerFlap').hide()
+	get_parent().get_node('PlayerShoot').show()
+	get_parent().get_node('PlayerShoot').play()

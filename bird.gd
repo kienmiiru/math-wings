@@ -49,7 +49,6 @@ func take_damage(amount: float):
 	_update_hp_display()
 
 func _on_area_entered(area: Area2D) -> void:
-	print("nabrak")
 	if area.is_in_group("pipe_collision") && alive && not area.is_hit:
 		area.is_hit = true
 		take_damage(0.15)
@@ -57,8 +56,8 @@ func _on_area_entered(area: Area2D) -> void:
 			#if child is CollisionShape2D:
 				#child.set_deferred("disabled", true)
 	if area.is_in_group("bullet_collision") && alive && not area.is_hit:
-		print("kena bulet")
 		area.is_hit = true
+		area.queue_free()
 		take_damage(0.10)
 
 

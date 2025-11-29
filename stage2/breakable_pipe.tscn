@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dg1oaw5e07q3t"]
+[gd_scene load_steps=9 format=3 uid="uid://dg1oaw5e07q3t"]
 
 [ext_resource type="Script" uid="uid://dk1km0h15aqiv" path="res://stage2/breakable_pipe.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://dykthdh64lvpx" path="res://icon.svg" id="2"]
+[ext_resource type="Texture2D" uid="uid://bh4j3fdw4axbi" path="res://assets/pipa/pipa1.png" id="2_8jfnw"]
+[ext_resource type="Texture2D" uid="uid://ds05ontyspmqa" path="res://assets/pipa/pipa2.png" id="3_24llq"]
 [ext_resource type="PackedScene" uid="uid://1rqgyhaaymqq" path="res://stage2/glass.tscn" id="3_p88xf"]
 
 [sub_resource type="RectangleShape2D" id="1"]
@@ -20,30 +21,52 @@ size = Vector2(32, 150)
 script = ExtResource("1")
 
 [node name="TopSprite" type="Sprite2D" parent="."]
-position = Vector2(-16, -530)
-scale = Vector2(0.25, 2.5781252)
-texture = ExtResource("2")
+position = Vector2(-43.999996, -530)
+scale = Vector2(1.3281249, 4.9843755)
+texture = ExtResource("2_8jfnw")
 centered = false
+
+[node name="Cap" type="Sprite2D" parent="TopSprite"]
+position = Vector2(32.376472, 65.00313)
+rotation = 3.1415927
+scale = Vector2(0.75294125, 0.20189275)
+texture = ExtResource("3_24llq")
 
 [node name="TopCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -365)
 shape = SubResource("1")
 
 [node name="BottomSprite" type="Sprite2D" parent="."]
-position = Vector2(-16, 200)
-scale = Vector2(0.25, 2.5781252)
-texture = ExtResource("2")
+position = Vector2(-44, 211)
+scale = Vector2(1.328, 4.984)
+texture = ExtResource("2_8jfnw")
 centered = false
+
+[node name="Cap" type="Sprite2D" parent="BottomSprite"]
+position = Vector2(33.13253, -1.0032113)
+scale = Vector2(0.75301206, 0.20064205)
+texture = ExtResource("3_24llq")
 
 [node name="BottomCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 365)
 shape = SubResource("1")
 
 [node name="MiddleSprite" type="Sprite2D" parent="."]
-position = Vector2(-16, -50)
-scale = Vector2(0.25, 0.78125)
-texture = ExtResource("2")
+position = Vector2(-43, -50)
+scale = Vector2(1.28125, 1.5625)
+texture = ExtResource("2_8jfnw")
 centered = false
+
+[node name="UpperCap" type="Sprite2D" parent="MiddleSprite"]
+position = Vector2(33.56098, 3.8400002)
+scale = Vector2(0.7804878, 0.64)
+texture = ExtResource("3_24llq")
+
+[node name="LowerCap" type="Sprite2D" parent="MiddleSprite"]
+position = Vector2(32.780487, 60.16)
+rotation = 3.1415927
+scale = Vector2(0.7804878, 0.64)
+texture = ExtResource("3_24llq")
 
 [node name="MiddleCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.81)
