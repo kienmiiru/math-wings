@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://h88rsodmxcqt"]
+[gd_scene load_steps=6 format=3 uid="uid://h88rsodmxcqt"]
 
-[ext_resource type="Texture2D" uid="uid://dykthdh64lvpx" path="res://icon.svg" id="1_chirh"]
 [ext_resource type="Script" uid="uid://b4b2eojvoy6m8" path="res://stage3/standard_pipe.gd" id="1_ofd2n"]
+[ext_resource type="Texture2D" uid="uid://bh4j3fdw4axbi" path="res://assets/pipa/pipa1.png" id="2_l61pq"]
+[ext_resource type="Texture2D" uid="uid://ds05ontyspmqa" path="res://assets/pipa/pipa2.png" id="3_fok5k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofd2n"]
 size = Vector2(32, 330)
@@ -14,20 +15,31 @@ collision_mask = 0
 script = ExtResource("1_ofd2n")
 
 [node name="TopSprite" type="Sprite2D" parent="."]
-position = Vector2(-16, -405)
-scale = Vector2(0.25, 2.5781252)
-texture = ExtResource("1_chirh")
+position = Vector2(-45, -405.00003)
+scale = Vector2(1.3593749, 5.15625)
+texture = ExtResource("2_l61pq")
 centered = false
+
+[node name="Cap" type="Sprite2D" parent="TopSprite"]
+position = Vector2(33.10345, 62.836372)
+rotation = 3.1415927
+scale = Vector2(0.73563224, 0.19393939)
+texture = ExtResource("3_fok5k")
 
 [node name="TopCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -240)
 shape = SubResource("RectangleShape2D_ofd2n")
 
 [node name="BottomSprite" type="Sprite2D" parent="."]
-position = Vector2(-16, 76)
-scale = Vector2(0.25, 2.5781252)
-texture = ExtResource("1_chirh")
+position = Vector2(-44.999996, 76)
+scale = Vector2(1.359375, 5.15625)
+texture = ExtResource("2_l61pq")
 centered = false
+
+[node name="Cap" type="Sprite2D" parent="BottomSprite"]
+position = Vector2(33.103443, 1.1636362)
+scale = Vector2(0.7356321, 0.19393939)
+texture = ExtResource("3_fok5k")
 
 [node name="BottomCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 241)
