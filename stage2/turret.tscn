@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b2skyyc6ukip8"]
+[gd_scene load_steps=26 format=3 uid="uid://b2skyyc6ukip8"]
 
 [ext_resource type="Script" uid="uid://wm83yqhnony3" path="res://stage2/turret.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://cm8nf8tsyten6" path="res://assets/canon/canon_leg.png" id="2_0codp"]
@@ -95,7 +95,10 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Turret" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0codp"]
+size = Vector2(120.28257, 113.06563)
+
+[node name="Turret" type="Area2D" groups=["turret"]]
 script = ExtResource("1")
 
 [node name="CanonLeg" type="Sprite2D" parent="."]
@@ -106,7 +109,7 @@ texture = ExtResource("2_0codp")
 
 [node name="CanonHead" type="AnimatedSprite2D" parent="."]
 position = Vector2(-29.000008, -2)
-rotation = 3.1415927
+rotation = -3.1415925
 scale = Vector2(0.8313756, 0.8313756)
 sprite_frames = SubResource("SpriteFrames_cgj38")
 
@@ -114,3 +117,9 @@ sprite_frames = SubResource("SpriteFrames_cgj38")
 position = Vector2(55.32998, -2.4056568)
 rotation = 3.1415925
 scale = Vector2(1.2028257, 1.2028257)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-28.999992, -6.0082457e-06)
+rotation = -3.1415925
+scale = Vector2(0.8313756, 0.8313756)
+shape = SubResource("RectangleShape2D_0codp")

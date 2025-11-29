@@ -6,6 +6,8 @@ var fire_timer := 0.0
 @export var shooting_power := 400.0
 
 var target: Node2D = null
+var hp := 1.0 # 100% HP
+var alive := true
 
 func _ready():
 	fire_timer = 0.0
@@ -42,3 +44,12 @@ func shoot_at_target():
 	if bullet.has_method("set_speed_vector"):
 		bullet.set_speed_vector(direction * shooting_power)
 	get_tree().current_scene.add_child(bullet)
+
+func take_damage(amount: float):
+	if !alive:
+		return
+	hp -= amount
+	if hp <= 0.0:
+		hp = 0.0
+		alive = false
+		queue_free() # Atau efek ledakan
