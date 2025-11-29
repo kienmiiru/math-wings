@@ -1,14 +1,116 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2skyyc6ukip8"]
+[gd_scene load_steps=25 format=3 uid="uid://b2skyyc6ukip8"]
 
 [ext_resource type="Script" uid="uid://wm83yqhnony3" path="res://stage2/turret.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://dykthdh64lvpx" path="res://icon.svg" id="2"]
+[ext_resource type="Texture2D" uid="uid://cm8nf8tsyten6" path="res://assets/canon/canon_leg.png" id="2_0codp"]
+[ext_resource type="Texture2D" uid="uid://cchq61mg5g2ct" path="res://assets/canon/canon_head/canon_head1.png" id="3_wcud5"]
+[ext_resource type="Texture2D" uid="uid://3v17okb1jtl6" path="res://assets/canon/canon_head/canon_head2.png" id="4_qmcp1"]
+[ext_resource type="Texture2D" uid="uid://jc5j8g8wk7hu" path="res://assets/canon/canon_head/canon_head3.png" id="5_rqv7e"]
+[ext_resource type="Texture2D" uid="uid://c74udok3x2jn" path="res://assets/canon/canon_head/canon_head4.png" id="6_t1o6c"]
+[ext_resource type="Texture2D" uid="uid://cfodh68pilv8u" path="res://assets/canon/canon_head/canon_head5.png" id="7_8366c"]
+[ext_resource type="Texture2D" uid="uid://y7l6cbe0tv8e" path="res://assets/canon/canon_head/canon_head6.png" id="8_g48jj"]
+[ext_resource type="Texture2D" uid="uid://cv4yedt6igpe6" path="res://assets/canon/canon_head/canon_head7.png" id="9_vjpjr"]
+[ext_resource type="Texture2D" uid="uid://b6lle4adc387a" path="res://assets/canon/canon_head/canon_head8.png" id="10_l7ntc"]
+[ext_resource type="Texture2D" uid="uid://4djoc61mdwfy" path="res://assets/canon/canon_head/canon_head9.png" id="11_sn2df"]
+[ext_resource type="Texture2D" uid="uid://ccinrj6ldjxrt" path="res://assets/canon/canon_head/canon_head10.png" id="12_gel3g"]
+[ext_resource type="Texture2D" uid="uid://fl8ycl12oonx" path="res://assets/canon/canon_head/canon_head11.png" id="13_242br"]
+[ext_resource type="Texture2D" uid="uid://biha3vsc4dy7s" path="res://assets/canon/canon_head/canon_head12.png" id="14_3kmxf"]
+[ext_resource type="Texture2D" uid="uid://dugf3q6k5o2hf" path="res://assets/canon/canon_head/canon_head13.png" id="15_y8w08"]
+[ext_resource type="Texture2D" uid="uid://bk7qyn8bggug8" path="res://assets/canon/canon_head/canon_head14.png" id="16_4vkqq"]
+[ext_resource type="Texture2D" uid="uid://dk7e8bhpi66l" path="res://assets/canon/canon_head/canon_head15.png" id="17_m8fbj"]
+[ext_resource type="Texture2D" uid="uid://bpk2yjb2iv51a" path="res://assets/canon/canon_head/canon_head16.png" id="18_11pml"]
+[ext_resource type="Texture2D" uid="uid://b4y13kt7vuh18" path="res://assets/canon/canon_head/canon_head17.png" id="19_0wxi2"]
+[ext_resource type="Texture2D" uid="uid://dse2gfogh5gv0" path="res://assets/canon/canon_head/canon_head18.png" id="20_pavfq"]
+[ext_resource type="Texture2D" uid="uid://cgykgfuijlxu5" path="res://assets/canon/canon_head/canon_head19.png" id="21_86h21"]
+[ext_resource type="Texture2D" uid="uid://bprxugnh2q3h7" path="res://assets/canon/canon_head/canon_head20.png" id="22_kbg17"]
+[ext_resource type="Texture2D" uid="uid://cjbyf3hmnq6h0" path="res://assets/canon/canon_head/canon_head21.png" id="23_jeifw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cgj38"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wcud5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qmcp1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rqv7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_t1o6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8366c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_g48jj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vjpjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_l7ntc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_sn2df")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gel3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_242br")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_3kmxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_y8w08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4vkqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_m8fbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_11pml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_0wxi2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_pavfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_86h21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_kbg17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_jeifw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Turret" type="Node2D"]
 script = ExtResource("1")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2")
+[node name="CanonLeg" type="Sprite2D" parent="."]
+position = Vector2(-35, 1.1920929e-07)
+rotation = -1.5707964
+scale = Vector2(0.86349607, 0.86349607)
+texture = ExtResource("2_0codp")
 
-[node name="MuzzlePoint" type="Marker2D" parent="."]
-position = Vector2(20, 0)
+[node name="CanonHead" type="AnimatedSprite2D" parent="."]
+position = Vector2(-29.000008, -2)
+rotation = 3.1415927
+scale = Vector2(0.8313756, 0.8313756)
+sprite_frames = SubResource("SpriteFrames_cgj38")
+
+[node name="MuzzlePoint" type="Marker2D" parent="CanonHead"]
+position = Vector2(55.32998, -2.4056568)
+rotation = 3.1415925
+scale = Vector2(1.2028257, 1.2028257)

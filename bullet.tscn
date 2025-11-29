@@ -2,16 +2,19 @@
 
 [ext_resource type="Script" uid="uid://dtndf3y6adyss" path="res://bullet.gd" id="1_v7oki"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rtl8c"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7oki"]
+size = Vector2(20, 4)
 
 [node name="Bullet" type="Area2D" groups=["bird_bullets"]]
 script = ExtResource("1_v7oki")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -10.0
-offset_top = -10.0
+offset_top = -2.0
 offset_right = 10.0
-offset_bottom = 10.0
+offset_bottom = 2.0
+color = Color(0.8745098, 0.24313726, 0.13725491, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_rtl8c")
+shape = SubResource("RectangleShape2D_v7oki")

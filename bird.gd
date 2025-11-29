@@ -13,6 +13,10 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("flap"):
 		velocity.y = JUMP_FORCE
+		$PlayerFlap.show()
+		$PlayerFlap.play()
+		$PlayerIdle.hide()
+		$PlayerShoot.hide()
 
 	position.y += velocity.y * delta
 
@@ -51,3 +55,15 @@ func _on_area_entered(area: Area2D) -> void:
 		#for child in area.get_children():
 			#if child is CollisionShape2D:
 				#child.set_deferred("disabled", true)
+
+
+func _on_player_flap_animation_finished() -> void:
+	$PlayerFlap.hide()
+	$PlayerIdle.show()
+	$PlayerShoot.hide()
+
+
+func _on_player_shoot_animation_finished() -> void:
+	$PlayerFlap.hide()
+	$PlayerIdle.show()
+	$PlayerShoot.hide()

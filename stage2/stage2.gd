@@ -48,7 +48,7 @@ func spawn_pipe():
 	pipe.add_to_group("pipe_collision")
 	if randi_range(0, 1) == 0:
 		var turret = turret_scene.instantiate()
-		turret.position = Vector2(-30, [0, -35, 35][randi_range(0, 2)])
+		turret.position = Vector2(-36, 0)
 		pipe.add_child(turret)
 	add_child(pipe)
 	pipes.append(pipe)

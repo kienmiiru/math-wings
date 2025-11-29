@@ -1,19 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cix5je02j7dno"]
+[gd_scene load_steps=4 format=3 uid="uid://cix5je02j7dno"]
 
 [ext_resource type="Script" uid="uid://dfc71fvtwp71i" path="res://stage2/turret_bullet.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c8mya2pjoma1l" path="res://assets/canon/bola.png" id="2_c3u7r"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_syha0"]
-radius = 5.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_60byt"]
+radius = 7.0
+height = 28.0
 
 [node name="TurretBullet" type="Area2D" groups=["bullet_collision"]]
 script = ExtResource("1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -6.0
-offset_top = -3.0
-offset_right = 6.0
-offset_bottom = 3.0
-color = Color(1, 0.6, 0, 1)
+[node name="Bola" type="Sprite2D" parent="."]
+position = Vector2(-2, 0)
+texture = ExtResource("2_c3u7r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_syha0")
+position = Vector2(-1, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_60byt")

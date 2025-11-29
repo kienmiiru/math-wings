@@ -1,5 +1,6 @@
 extends Area2D
 var is_broken = false
+var is_hit = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

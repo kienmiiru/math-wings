@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var fire_interval := 1.5
+@export var fire_interval := 2
 @export var bullet_scene: PackedScene = preload("res://stage2/turret_bullet.tscn")
 var fire_timer := 0.0
 @export var shooting_power := 400.0
@@ -10,6 +10,7 @@ var target: Node2D = null
 func _ready():
 	fire_timer = 0.0
 	find_target()
+	$CanonHead.play()
 
 func find_target():
 	# TODO: For now, assumes Bird is named "Bird" in the root/main scene
@@ -21,6 +22,10 @@ func _process(delta):
 	if target == null:
 		find_target()
 		return
+	
+	if target != null:
+		var direction = (target.global_position - $CanonHead.global_position).normalized()
+		$CanonHead.rotation = direction.angle()
 
 	fire_timer += delta
 	if fire_timer >= fire_interval:
@@ -31,7 +36,7 @@ func shoot_at_target():
 	if target == null:
 		return
 	var bullet = bullet_scene.instantiate()
-	bullet.global_position = global_position
+	bullet.global_position = $CanonHead/MuzzlePoint.global_position
 	var direction = (target.global_position - global_position).normalized()
 	bullet.rotation = direction.angle()
 	if bullet.has_method("set_speed_vector"):
