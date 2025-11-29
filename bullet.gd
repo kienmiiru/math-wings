@@ -11,6 +11,6 @@ func _physics_process(delta):
 	position += Vector2.RIGHT.rotated(rotation) * speed * delta
 
 func _on_area_entered(area):
-	if area.has_method("take_damage") and area.is_in_group("turret"):
+	if area.has_method("take_damage") and (area.is_in_group("turret") or area.is_in_group("boss")):
 		area.take_damage(damage)
 		queue_free()

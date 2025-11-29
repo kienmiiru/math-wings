@@ -39,6 +39,8 @@ func _update_hp_display():
 		stage.get_node("HUDStage2").update_hp(hp)
 	elif stage.has_node("HUDStage3"):
 		stage.get_node("HUDStage3").update_hp(hp)
+	elif stage.has_node("HUDStage4"):
+		stage.get_node("HUDStage4").update_hp(hp)
 
 func take_damage(amount: float):
 	if !alive:
