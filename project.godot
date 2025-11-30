@@ -25,6 +25,7 @@ window/stretch/mode="canvas_items"
 pipe_collision=""
 bullet_collision=""
 turret=""
+laser=""
 
 [input]
 

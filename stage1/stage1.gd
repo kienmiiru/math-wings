@@ -49,6 +49,5 @@ func spawn_pipe():
 	pipes.append(pipe)
 
 func _on_bird_collide() -> void:
-	if $Bird.hp <= 0.0:
-		get_tree().call_group("pipe_collision", "stop")
-		lost = true
+	get_tree().call_group("pipe_collision", "stop")
+	lost = true

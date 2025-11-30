@@ -2,7 +2,7 @@ extends Resource
 
 class_name QuestionGenerator
 
-func generate_question():
+func generate_question(always_true_on_top=false):
 	# Rentang angka bisa diatur sesuai tingkat kesulitan (untuk Stage 1: sederhana)
 	var num1 = randi_range(1, 20)
 	var num2 = randi_range(1, 20)
@@ -15,7 +15,7 @@ func generate_question():
 			wrong_answer = answer + abs(randi_range(1, 10))
 
 	# Randomize letak jawaban
-	var is_true_on_top = randf() < 0.5
+	var is_true_on_top = randf() < 0.5 if not always_true_on_top else true
 	if is_true_on_top:
 		return {
 			"question": "%d + %d = ?" % [num1, num2],

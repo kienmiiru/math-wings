@@ -56,9 +56,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("18_xc7rh")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -94,8 +94,23 @@ radius = 47.296936
 script = ExtResource("1_stbnd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, -10)
 sprite_frames = SubResource("SpriteFrames_stbnd")
-animation = &"attack"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_b8ru5")
+
+[node name="MoverTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="HPBar" type="ProgressBar" parent="."]
+offset_left = -61.0
+offset_top = -78.0
+offset_right = 64.0
+offset_bottom = -51.0
+value = 100.0
+show_percentage = false
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="MoverTimer" to="." method="_on_mover_timer_timeout"]

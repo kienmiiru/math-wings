@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd6rpsukx4v4t"
-path="res://.godot/imported/player_flap8.png-49d66fd36e765df4113916d4338f96f6.ctex"
+uid="uid://pfaviniae2j8"
+path="res://.godot/imported/playe_die2.png-90be4c884db6017278cddf13adf630d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/player_flap/player_flap8.png"
-dest_files=["res://.godot/imported/player_flap8.png-49d66fd36e765df4113916d4338f96f6.ctex"]
+source_file="res://assets/player/player_die/playe_die2.png"
+dest_files=["res://.godot/imported/playe_die2.png-90be4c884db6017278cddf13adf630d5.ctex"]
 
 [params]
 

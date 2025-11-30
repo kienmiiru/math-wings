@@ -11,12 +11,10 @@ var alive := true
 func _physics_process(delta):
 	velocity.y += GRAVITY * delta
 
-	if Input.is_action_just_pressed("flap"):
+	if Input.is_action_just_pressed("flap") and alive:
 		velocity.y = JUMP_FORCE
-		$PlayerFlap.show()
-		$PlayerFlap.play()
-		$PlayerIdle.hide()
-		$PlayerShoot.hide()
+		$AnimatedSprite2D.play('flap')
+		
 
 	position.y += velocity.y * delta
 
@@ -50,6 +48,7 @@ func take_damage(amount: float):
 		hp = 0.0
 		alive = false
 		emit_signal("collide")
+		$AnimatedSprite2D.play('die')
 	_update_hp_display()
 
 func _on_area_entered(area: Area2D) -> void:
@@ -63,15 +62,7 @@ func _on_area_entered(area: Area2D) -> void:
 		area.is_hit = true
 		area.queue_free()
 		take_damage(0.10)
-
-
-func _on_player_flap_animation_finished() -> void:
-	$PlayerFlap.hide()
-	$PlayerIdle.show()
-	$PlayerShoot.hide()
-
-
-func _on_player_shoot_animation_finished() -> void:
-	$PlayerFlap.hide()
-	$PlayerIdle.show()
-	$PlayerShoot.hide()
+	
+	if area.is_in_group("laser") && alive:
+		take_damage(0.25)
+		area.is_hit = true

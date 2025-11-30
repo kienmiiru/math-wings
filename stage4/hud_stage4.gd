@@ -19,3 +19,18 @@ func show_question():
 
 func hide_question():
 	$QuestionLabel.visible = false
+
+func set_answers(a, b, c):
+	$Answers/Answer1.text = a
+	$Answers/Answer2.text = b
+	$Answers/Answer3.text = c
+
+func hide_answers():
+	$Answers/Answer1.hide()
+	$Answers/Answer2.hide()
+	$Answers/Answer3.hide()
+
+func show_answers():
+	$Answers/Answer1.show()
+	$Answers/Answer2.show()
+	$Answers/Answer3.show()

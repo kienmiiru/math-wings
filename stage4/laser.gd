@@ -4,17 +4,22 @@ extends Node2D
 @export var laser_length: float = 800.0
 @export var color_on: Color = Color(1,0,0,0.7)
 @export var color_off: Color = Color(1,0,0,0.2)
+var is_hit = false
 
 func _draw():
 	if is_on:
-		$Area2D/ColorRect.color = color_on
+		$AnimatedSprite2D.show()
+		$AnimatedSprite2D.play()
+		#$ColorRect.color = color_on
 	else:
-		$Area2D/ColorRect.color = color_off
+		$AnimatedSprite2D.hide()
+		#$ColorRect.color = color_off
 
-func set_on(on: bool):
-	is_on = on
+func activate():
+	is_on = true
+	$CollisionShape2D.disabled = false
 	queue_redraw()
 
 func _ready():
-	$Area2D/ColorRect.color = color_off
+	$ColorRect.color = color_off
 	queue_redraw()
