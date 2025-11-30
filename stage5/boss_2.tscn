@@ -1,0 +1,116 @@
+[gd_scene load_steps=22 format=3 uid="uid://d28auxtmebbyh"]
+
+[ext_resource type="Script" uid="uid://jleyxdpkbh33" path="res://stage5/boss_2.gd" id="1_mjd1r"]
+[ext_resource type="Texture2D" uid="uid://dnq3hijde0dhn" path="res://assets/prof/prof_attack/profattack1.png" id="2_yo2qm"]
+[ext_resource type="Texture2D" uid="uid://cm0yrtaai2v3g" path="res://assets/prof/prof_attack/profattack2.png" id="3_udci8"]
+[ext_resource type="Texture2D" uid="uid://bnidp43yjs85e" path="res://assets/prof/prof_attack/profattack3.png" id="4_l7cyk"]
+[ext_resource type="Texture2D" uid="uid://bnl7ieeio0kf4" path="res://assets/prof/prof_attack/profattack4.png" id="5_7xa6a"]
+[ext_resource type="Texture2D" uid="uid://n5vqlah4kx62" path="res://assets/prof/prof_attack/profattack5.png" id="6_2go3n"]
+[ext_resource type="Texture2D" uid="uid://dgtntlnqnrn0s" path="res://assets/prof/prof_attack/profattack6.png" id="7_45h04"]
+[ext_resource type="Texture2D" uid="uid://du6jui2v7bnqo" path="res://assets/prof/prof_attack/profattack7.png" id="8_wj13e"]
+[ext_resource type="Texture2D" uid="uid://d6ltcwvkqlro" path="res://assets/prof/prof_attack/profattack8.png" id="9_iinvi"]
+[ext_resource type="Texture2D" uid="uid://djy4exr61crl6" path="res://assets/prof/prof_attack/profattack9.png" id="10_x8nf0"]
+[ext_resource type="Texture2D" uid="uid://fqghsu7rfkbh" path="res://assets/prof/prof_attack/profattack10.png" id="11_4u10k"]
+[ext_resource type="Texture2D" uid="uid://c6jq7j24yy32x" path="res://assets/prof/prof_attack/profattack11.png" id="12_evqvx"]
+[ext_resource type="Texture2D" uid="uid://c0p10hyoxxqfr" path="res://assets/prof/prof_idle/profstasis1.png" id="13_as5u4"]
+[ext_resource type="Texture2D" uid="uid://bjg6sgiy16oj" path="res://assets/prof/prof_idle/profstasis2.png" id="14_4i4qg"]
+[ext_resource type="Texture2D" uid="uid://hkh2nq6vynxs" path="res://assets/prof/prof_idle/profstasis3.png" id="15_g7end"]
+[ext_resource type="Texture2D" uid="uid://6oaq4kqn8vmg" path="res://assets/prof/prof_idle/profstasis4.png" id="16_q1jpw"]
+[ext_resource type="Texture2D" uid="uid://v5pr1ok6ht5h" path="res://assets/prof/prof_idle/profstasis5.png" id="17_t5hkx"]
+[ext_resource type="Texture2D" uid="uid://d28c5liyaarje" path="res://assets/prof/prof_idle/profstasis6.png" id="18_07al5"]
+[ext_resource type="Texture2D" uid="uid://q2k62y2krs2o" path="res://assets/prof/prof_idle/profstasis7.png" id="19_xcebx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_stbnd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yo2qm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_udci8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l7cyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7xa6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2go3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_45h04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wj13e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_iinvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_x8nf0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4u10k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_evqvx")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_as5u4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4i4qg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_g7end")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_q1jpw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_t5hkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_07al5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_xcebx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b8ru5"]
+radius = 47.296936
+
+[node name="Boss2" type="Area2D"]
+script = ExtResource("1_mjd1r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, -10)
+sprite_frames = SubResource("SpriteFrames_stbnd")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b8ru5")
+
+[node name="MoverTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="HPBar" type="ProgressBar" parent="."]
+offset_left = -61.0
+offset_top = -78.0
+offset_right = 64.0
+offset_bottom = -51.0
+value = 100.0
+show_percentage = false
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="MoverTimer" to="." method="_on_mover_timer_timeout"]

@@ -26,6 +26,7 @@ pipe_collision=""
 bullet_collision=""
 turret=""
 laser=""
+missile=""
 
 [input]
 
