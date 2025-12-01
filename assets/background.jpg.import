@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvyo2cke8p2sg"
-path="res://.godot/imported/angka6.jpg-f35b83f7cde5bc599b46c79c68b449a3.ctex"
+uid="uid://citgyarlvi82j"
+path="res://.godot/imported/background.jpg-3c1ee7bbff6a1283595ccc69bb1d6acd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/angka/angka6.jpg"
-dest_files=["res://.godot/imported/angka6.jpg-f35b83f7cde5bc599b46c79c68b449a3.ctex"]
+source_file="res://assets/background.jpg"
+dest_files=["res://.godot/imported/background.jpg-3c1ee7bbff6a1283595ccc69bb1d6acd.ctex"]
 
 [params]
 

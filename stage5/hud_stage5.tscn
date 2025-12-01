@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy4ps2daw8sw2"]
+[gd_scene load_steps=3 format=3 uid="uid://dy4ps2daw8sw2"]
 
 [ext_resource type="Script" uid="uid://35f5g5vrgplk" path="res://stage5/hud_stage5.gd" id="1_dp17a"]
+[ext_resource type="FontFile" uid="uid://qai12svbvyg7" path="res://assets/PressStart2P.ttf" id="2_gh38f"]
 
 [node name="HUDStage5" type="CanvasLayer"]
 script = ExtResource("1_dp17a")
@@ -10,6 +11,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 200.0
 offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("2_gh38f")
 value = 100.0
 
 [node name="HPLabel" type="Label" parent="."]
@@ -17,21 +19,31 @@ offset_left = 24.0
 offset_top = 20.0
 offset_right = 51.0
 offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("2_gh38f")
 text = "HP:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="."]
 offset_left = 220.0
-offset_top = 18.0
-offset_right = 290.0
-offset_bottom = 38.0
+offset_top = 21.0
+offset_right = 281.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gh38f")
 text = "Score: 0"
+vertical_alignment = 1
 
 [node name="QuestionLabel" type="Label" parent="."]
-offset_left = 181.0
-offset_top = 93.0
-offset_right = 481.0
-offset_bottom = 126.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.5
+offset_top = 102.0
+offset_right = 30.5
+offset_bottom = 125.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gh38f")
 text = "1 + 1 = ?"
 horizontal_alignment = 1

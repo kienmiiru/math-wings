@@ -8,7 +8,7 @@
 script = ExtResource("1_7uypk")
 
 [node name="Bird" parent="." instance=ExtResource("1_bird")]
-position = Vector2(100, 240)
+position = Vector2(60, 240)
 
 [node name="HUDStage1" parent="." instance=ExtResource("3_7ro3l")]
 
