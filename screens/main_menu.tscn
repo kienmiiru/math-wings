@@ -1,20 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2jpvn68t80hg"]
+[gd_scene load_steps=6 format=3 uid="uid://b2jpvn68t80hg"]
 
+[ext_resource type="Script" uid="uid://uk2pb13mysk0" path="res://screens/main_menu.gd" id="1_5mnfb"]
 [ext_resource type="Texture2D" uid="uid://d05rh7iga51ne" path="res://assets/menu/mainMenu.png" id="1_ocono"]
 [ext_resource type="Texture2D" uid="uid://du5sm2i35hcoi" path="res://assets/menu/playtext (1).png" id="2_t3bh0"]
 [ext_resource type="Texture2D" uid="uid://dh0n2ylyvvnll" path="res://assets/menu/playtext (2).png" id="3_5mnfb"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3bh0"]
+size = Vector2(116, 46)
+
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_5mnfb")
 
 [node name="MainMenu" type="Sprite2D" parent="."]
 position = Vector2(360, 103)
 scale = Vector2(0.2851852, 0.28518522)
 texture = ExtResource("1_ocono")
 
-[node name="Playtext(1)" type="Sprite2D" parent="."]
-position = Vector2(360, 256)
+[node name="PlayButton" type="Area2D" parent="."]
+position = Vector2(362, 237)
+
+[node name="Playtext(1)" type="Sprite2D" parent="PlayButton"]
+position = Vector2(2, -2)
 texture = ExtResource("2_t3bh0")
 
-[node name="Playtext(2)" type="Sprite2D" parent="."]
-position = Vector2(360, 351)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayButton"]
+shape = SubResource("RectangleShape2D_t3bh0")
+
+[node name="ExitButton" type="Area2D" parent="."]
+position = Vector2(362, 327)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitButton"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_t3bh0")
+
+[node name="Playtext(2)" type="Sprite2D" parent="ExitButton"]
+position = Vector2(6, -1.5)
 texture = ExtResource("3_5mnfb")
+
+[connection signal="input_event" from="PlayButton" to="." method="_on_play_button_input_event"]
+[connection signal="input_event" from="ExitButton" to="." method="_on_exit_button_input_event"]

@@ -12,5 +12,11 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	print('okk')
-	$CanvasLayer/AnimationPlayer.play("fade_out")
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			$CanvasLayer.show()
+			$CanvasLayer/AnimationPlayer.play("fade_out")
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	get_tree().change_scene_to_file("res://screens/main_menu.tscn")

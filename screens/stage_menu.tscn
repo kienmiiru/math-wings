@@ -1,0 +1,184 @@
+[gd_scene load_steps=9 format=3 uid="uid://3imuk5adthb4"]
+
+[ext_resource type="Script" uid="uid://cyghfgxvqor6i" path="res://screens/stage_menu.gd" id="1_c57x4"]
+[ext_resource type="Texture2D" uid="uid://bohqi2vcshbdi" path="res://assets/menu/StoryMode.png" id="1_tjlrl"]
+[ext_resource type="Texture2D" uid="uid://dor78o1e2lelh" path="res://assets/menu/Endless Torture.png" id="2_hh2nu"]
+[ext_resource type="Texture2D" uid="uid://b0pqhkqn6ooin" path="res://assets/menu/Placeholder Level NonBoss.png" id="3_8duqs"]
+[ext_resource type="Texture2D" uid="uid://cb7roob1dyjfc" path="res://assets/menu/ButtonNextBack.png" id="3_15ikj"]
+[ext_resource type="FontFile" uid="uid://qai12svbvyg7" path="res://assets/PressStart2P.ttf" id="4_c57x4"]
+[ext_resource type="Texture2D" uid="uid://dngkudvuaevrx" path="res://assets/menu/PlaceHolder Level Boss.png" id="5_7gquu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_15ikj"]
+radius = 26.019224
+
+[node name="StageMenu" type="Node2D"]
+script = ExtResource("1_c57x4")
+
+[node name="SwitchModeButton" type="Node2D" parent="."]
+
+[node name="NextButton" type="Area2D" parent="SwitchModeButton"]
+
+[node name="Next" type="Sprite2D" parent="SwitchModeButton/NextButton"]
+position = Vector2(651, 61)
+scale = Vector2(0.609375, 0.609375)
+texture = ExtResource("3_15ikj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwitchModeButton/NextButton"]
+position = Vector2(647, 60)
+shape = SubResource("CircleShape2D_15ikj")
+
+[node name="PrevButton" type="Area2D" parent="SwitchModeButton"]
+visible = false
+
+[node name="Prev" type="Sprite2D" parent="SwitchModeButton/PrevButton"]
+position = Vector2(61, 61)
+rotation = -3.1415927
+scale = Vector2(0.609, 0.609)
+texture = ExtResource("3_15ikj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwitchModeButton/PrevButton"]
+position = Vector2(62, 61)
+shape = SubResource("CircleShape2D_15ikj")
+
+[node name="Story" type="Node2D" parent="."]
+
+[node name="StoryMode" type="Sprite2D" parent="Story"]
+position = Vector2(360, 60)
+scale = Vector2(0.28703701, 0.28703704)
+texture = ExtResource("1_tjlrl")
+
+[node name="Stage1Button" type="Button" parent="Story"]
+offset_left = 24.0
+offset_top = 180.0
+offset_right = 160.0
+offset_bottom = 316.0
+icon = ExtResource("3_8duqs")
+flat = true
+
+[node name="Label" type="Label" parent="Story/Stage1Button"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 65.0
+offset_right = 101.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("4_c57x4")
+text = "1"
+
+[node name="Stage2Button" type="Button" parent="Story"]
+offset_left = 157.0
+offset_top = 180.0
+offset_right = 293.0
+offset_bottom = 316.0
+icon = ExtResource("3_8duqs")
+flat = true
+
+[node name="Label" type="Label" parent="Story/Stage2Button"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 65.0
+offset_right = 101.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("4_c57x4")
+text = "2"
+
+[node name="Stage3Button" type="Button" parent="Story"]
+offset_left = 294.0
+offset_top = 180.0
+offset_right = 430.0
+offset_bottom = 316.0
+icon = ExtResource("3_8duqs")
+flat = true
+
+[node name="Label" type="Label" parent="Story/Stage3Button"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 65.0
+offset_right = 101.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("4_c57x4")
+text = "3"
+
+[node name="Stage4Button" type="Button" parent="Story"]
+offset_left = 428.0
+offset_top = 180.0
+offset_right = 564.0
+offset_bottom = 316.0
+icon = ExtResource("5_7gquu")
+flat = true
+
+[node name="Label" type="Label" parent="Story/Stage4Button"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 65.0
+offset_right = 101.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("4_c57x4")
+text = "4"
+
+[node name="Stage5Button" type="Button" parent="Story"]
+offset_left = 553.0
+offset_top = 180.0
+offset_right = 689.0
+offset_bottom = 316.0
+icon = ExtResource("5_7gquu")
+flat = true
+
+[node name="Label" type="Label" parent="Story/Stage5Button"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 65.0
+offset_right = 101.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("4_c57x4")
+text = "5"
+metadata/_edit_use_anchors_ = true
+
+[node name="Endless" type="Node2D" parent="."]
+visible = false
+
+[node name="EndlessTorture" type="Sprite2D" parent="Endless"]
+position = Vector2(359.00003, 56.000004)
+scale = Vector2(0.28206018, 0.2820602)
+texture = ExtResource("2_hh2nu")
+
+[node name="Stage5Button" type="Button" parent="Endless"]
+offset_left = 287.0
+offset_top = 180.0
+offset_right = 423.0
+offset_bottom = 316.0
+icon = ExtResource("5_7gquu")
+flat = true
+
+[node name="Label" type="Label" parent="Endless/Stage5Button"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 65.0
+offset_right = 101.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("4_c57x4")
+text = "6"
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Area2D" parent="."]
+position = Vector2(37, 439)
+scale = Vector2(0.5, 0.5)
+
+[node name="Prev" type="Sprite2D" parent="BackButton"]
+rotation = -3.1415927
+scale = Vector2(0.609, 0.609)
+texture = ExtResource("3_15ikj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackButton"]
+shape = SubResource("CircleShape2D_15ikj")
+
+[node name="Label" type="Label" parent="BackButton"]
+offset_left = 44.0
+offset_top = -8.0
+offset_right = 108.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("4_c57x4")
+text = "Back"
+
+[connection signal="input_event" from="SwitchModeButton/NextButton" to="." method="_on_next_button_input_event"]
+[connection signal="input_event" from="SwitchModeButton/PrevButton" to="." method="_on_prev_button_input_event"]
+[connection signal="input_event" from="BackButton" to="." method="_on_back_button_input_event"]
