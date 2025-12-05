@@ -8,6 +8,7 @@ var _homing_time := 0.0
 var _homing := true
 var _direction := Vector2.RIGHT
 var _bird
+var is_hit = false
 
 func _ready() -> void:
 	# Find the Bird node in the scene tree
