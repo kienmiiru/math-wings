@@ -1,11 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://4q682kxc1nqy"]
 
 [ext_resource type="Script" uid="uid://bafef1ii2fro0" path="res://stage3/stage3.gd" id="1_kn3cg"]
-[ext_resource type="PackedScene" path="res://stage3/hud_stage3.tscn" id="2_tftyt"]
+[ext_resource type="PackedScene" uid="uid://dpu16fqusxgun" path="res://stage3/hud_stage3.tscn" id="2_tftyt"]
 [ext_resource type="PackedScene" uid="uid://cuxdc162kncle" path="res://bird.tscn" id="3_cxt1b"]
 
 [node name="Stage3" type="Node"]
 script = ExtResource("1_kn3cg")
+difficulty = 0.0
 
 [node name="HUDStage3" parent="." instance=ExtResource("2_tftyt")]
 

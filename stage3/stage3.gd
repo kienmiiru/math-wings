@@ -4,6 +4,7 @@ extends Node
 @export var standard_pipe_scene : PackedScene = preload("res://stage3/standard_pipe.tscn")
 @export var question_generator_res : Resource = preload("res://question_generator.gd")
 
+@export_range(0, 2, 1) var difficulty
 var score := 0
 var pipes = []
 var spawn_timer := 0.0
@@ -17,12 +18,13 @@ var current_pipe
 var question_generator = QuestionGenerator.new()
 
 func _ready():
+	standard_pipe_to_spawn = [3, 5, 7][difficulty]
 	spawn_phase()
 	$HUDStage3.update_score(score)
 
 func spawn_phase():
 	# Tampilkan soal ke pemain
-	question_data = question_generator.generate_question()
+	question_data = question_generator.generate_question(false, ['easy', 'medium', 'hard'][difficulty])
 	$HUDStage3.update_question(question_data["question"])
 	$HUDStage3.show_question()
 	spawn_timer = 0.0

@@ -21,7 +21,7 @@ func _ready():
 
 func start_pipe_phase():
 	phase = 0
-	question_data = question_generator.generate_question(true)
+	question_data = question_generator.generate_question(true, 'hard')
 	$HUDStage4.update_question(question_data["question"])
 	$HUDStage4.show_question()
 	$HUDStage4.hide_answers()
