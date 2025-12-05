@@ -32,3 +32,22 @@ func _on_back_button_input_event(viewport: Node, event: InputEvent, shape_idx: i
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			get_tree().change_scene_to_file("res://screens/main_menu.tscn")
+
+func _on_stage_1_button_button_down() -> void:
+	get_tree().change_scene_to_file("res://stage1/level_select.tscn")
+
+
+func _on_stage_2_button_button_down() -> void:
+	get_tree().change_scene_to_file("res://stage2/level_select.tscn")
+
+
+func _on_stage_3_button_button_down() -> void:
+	get_tree().change_scene_to_file("res://stage3/level_select.tscn")
+
+
+func _on_stage_4_button_button_down() -> void:
+	get_tree().change_scene_to_file("res://stage4/level_select.tscn")
+
+
+func _on_stage_5_button_button_down() -> void:
+	get_tree().change_scene_to_file("res://stage5/level_select.tscn")

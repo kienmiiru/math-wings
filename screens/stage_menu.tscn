@@ -181,4 +181,9 @@ text = "Back"
 
 [connection signal="input_event" from="SwitchModeButton/NextButton" to="." method="_on_next_button_input_event"]
 [connection signal="input_event" from="SwitchModeButton/PrevButton" to="." method="_on_prev_button_input_event"]
+[connection signal="button_down" from="Story/Stage1Button" to="." method="_on_stage_1_button_button_down"]
+[connection signal="button_down" from="Story/Stage2Button" to="." method="_on_stage_2_button_button_down"]
+[connection signal="button_down" from="Story/Stage3Button" to="." method="_on_stage_3_button_button_down"]
+[connection signal="button_down" from="Story/Stage4Button" to="." method="_on_stage_4_button_button_down"]
+[connection signal="button_down" from="Story/Stage5Button" to="." method="_on_stage_5_button_button_down"]
 [connection signal="input_event" from="BackButton" to="." method="_on_back_button_input_event"]
