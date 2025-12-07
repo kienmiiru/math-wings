@@ -1,13 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://brfvt7urs0mpw"]
+[gd_scene load_steps=6 format=3 uid="uid://brfvt7urs0mpw"]
 
 [ext_resource type="Script" uid="uid://cy8hhtnrnpiqd" path="res://stage2/stage2.gd" id="1_wjinu"]
 [ext_resource type="PackedScene" uid="uid://cuxdc162kncle" path="res://bird.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://b6dbnaox55mch" path="res://assets/background/backgrounddiam.png" id="2_7xm7f"]
 [ext_resource type="PackedScene" path="res://bird_weapon.tscn" id="2_db2ir"]
 [ext_resource type="PackedScene" uid="uid://enwyx6pxumig" path="res://stage2/hud_stage2.tscn" id="5_o3ub0"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_wjinu")
 difficulty = 2.0
+
+[node name="Backgrounddiam" type="Sprite2D" parent="."]
+position = Vector2(360, 240)
+texture = ExtResource("2_7xm7f")
 
 [node name="Bird" parent="." instance=ExtResource("2")]
 position = Vector2(60, 230)

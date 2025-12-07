@@ -5,7 +5,7 @@ extends Node
 
 var score := 0
 var spawn_timer := 0.0
-var spawn_interval := 5 # detik
+var spawn_interval := 3 # detik
 var pipes = []
 var question_generator = QuestionGenerator.new()
 var lost = false

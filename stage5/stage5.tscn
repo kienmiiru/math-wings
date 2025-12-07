@@ -1,13 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0tenfnficl2t"]
+[gd_scene load_steps=7 format=3 uid="uid://b0tenfnficl2t"]
 
 [ext_resource type="Script" uid="uid://c8l8cdn3g2c5w" path="res://stage5/stage5.gd" id="1_xdha5"]
 [ext_resource type="PackedScene" uid="uid://cuxdc162kncle" path="res://bird.tscn" id="4_2w1vm"]
 [ext_resource type="PackedScene" uid="uid://dy4ps2daw8sw2" path="res://stage5/hud_stage5.tscn" id="5_bqv3r"]
 [ext_resource type="PackedScene" path="res://bird_weapon.tscn" id="5_jttgy"]
 [ext_resource type="PackedScene" uid="uid://d28auxtmebbyh" path="res://stage5/boss_2.tscn" id="5_xdha5"]
+[ext_resource type="Texture2D" uid="uid://ch55e1uqaxmnx" path="res://assets/background/backgroundbossakhir.png" id="6_bqv3r"]
 
 [node name="Stage5" type="Node"]
 script = ExtResource("1_xdha5")
+
+[node name="Backgroundbossakhir" type="Sprite2D" parent="."]
+position = Vector2(360, 240)
+texture = ExtResource("6_bqv3r")
 
 [node name="Bird" parent="." instance=ExtResource("4_2w1vm")]
 position = Vector2(68, 231)
