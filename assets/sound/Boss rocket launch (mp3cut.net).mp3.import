@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dcrr6ilikntxa"
+path="res://.godot/imported/Boss rocket launch (mp3cut.net).mp3-88aed475cea239d2b4b4a9ec849f7aa4.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/Boss rocket launch (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/Boss rocket launch (mp3cut.net).mp3-88aed475cea239d2b4b4a9ec849f7aa4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

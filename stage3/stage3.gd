@@ -6,21 +6,32 @@ extends Node
 
 @export_range(0, 2, 1) var difficulty
 var score := 0
+var coin = 0
 var pipes = []
 var spawn_timer := 0.0
 var lost = false
 var phase = 0
 var question_data = null
-var standard_pipe_to_spawn := 5  # Atur sesuai keinginan
+var standard_pipe_to_spawn := 3  # Atur sesuai keinginan
 var standard_made := 0
 var current_pipe
+var target_score
 
 var question_generator = QuestionGenerator.new()
 
 func _ready():
 	standard_pipe_to_spawn = [3, 5, 7][difficulty]
+	target_score = [3, 6, 9][difficulty]
 	spawn_phase()
+	$HUDStage3.target = target_score
 	$HUDStage3.update_score(score)
+	
+	if $Bird.powerup_1_available:
+		$PowerUpHud.show_powerup_1()
+	if $Bird.powerup_2_available:
+		$PowerUpHud.show_powerup_2()
+	if $Bird.powerup_3_available:
+		$PowerUpHud.show_powerup_3()
 
 func spawn_phase():
 	# Tampilkan soal ke pemain
@@ -32,7 +43,7 @@ func spawn_phase():
 	standard_made = 0
 
 func isWin():
-	return score >= [10, 15, 20][difficulty]
+	return score >= target_score
 
 func isLose():
 	return lost
@@ -84,8 +95,13 @@ func _process(delta):
 
 	if current_pipe and current_pipe.position.x <= $Bird.position.x:
 		if not current_pipe.is_hit:
-			score += 1
-		$HUDStage3.update_score(score)
+			if current_pipe.is_in_group('two_choice_pipe'):
+				score += 1
+				$HUDStage3.update_score(score)
+			coin += 1
+			if $Bird.double_coin:
+				coin += 1
+			$HUDStage3.update_coin(coin)
 		if pipes.size() > 1:
 			current_pipe = pipes[1]
 		else:
@@ -121,3 +137,15 @@ func spawn_two_choice_pipe():
 func _on_bird_collide():
 	get_tree().call_group("pipe_collision", "stop")
 	lost = true
+
+
+func _on_bird_powerup_1_activated() -> void:
+	$PowerUpHud.animate_powerup_1()
+
+
+func _on_bird_powerup_2_activated() -> void:
+	$PowerUpHud.animate_powerup_2()
+
+
+func _on_bird_powerup_3_activated() -> void:
+	$PowerUpHud.animate_powerup_3()

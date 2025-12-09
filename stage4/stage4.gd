@@ -16,10 +16,18 @@ var bird = null
 var question_generator = QuestionGenerator.new()
 var current_pipe
 var score = 0
+var coin = 0
 
 func _ready():
 	bird = $Bird
 	start_pipe_phase()
+	
+	if $Bird.powerup_1_available:
+		$PowerUpHud.show_powerup_1()
+	if $Bird.powerup_2_available:
+		$PowerUpHud.show_powerup_2()
+	if $Bird.powerup_3_available:
+		$PowerUpHud.show_powerup_3()
 
 func start_pipe_phase():
 	phase = 0
@@ -75,6 +83,10 @@ func _process(delta):
 			if not current_pipe.is_hit:
 				score += 1
 				$HUDStage4.update_score(score)
+				coin += 1
+				if $Bird.double_coin:
+					coin += 1
+				$HUDStage4.update_coin(coin)
 			current_pipe = pipes[1] if pipes.size() > 1 else null
 		elif not current_pipe and pipes.size() > 1:
 			current_pipe = pipes[1]
@@ -121,3 +133,15 @@ func _on_bird_collide() -> void:
 func _on_boss_1_died() -> void:
 	get_tree().call_group("pipe_collision", "stop")
 	phase = 2
+
+
+func _on_bird_powerup_1_activated() -> void:
+	$PowerUpHud.animate_powerup_1()
+
+
+func _on_bird_powerup_2_activated() -> void:
+	$PowerUpHud.animate_powerup_2()
+
+
+func _on_bird_powerup_3_activated() -> void:
+	$PowerUpHud.animate_powerup_3()

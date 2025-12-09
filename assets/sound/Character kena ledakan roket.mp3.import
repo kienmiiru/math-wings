@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dgh76c4tp0ygw"
+path="res://.godot/imported/Character kena ledakan roket.mp3-d37e068926b16adaf49e6463f705ecf2.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/Character kena ledakan roket.mp3"
+dest_files=["res://.godot/imported/Character kena ledakan roket.mp3-d37e068926b16adaf49e6463f705ecf2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

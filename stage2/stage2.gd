@@ -6,18 +6,29 @@ extends Node
 
 @export_range(0, 2, 1) var difficulty
 var score := 0
+var coin = 0
 var spawn_timer := 0.0
 var spawn_interval := 2 # detik
 var pipes = []
 var question_generator = QuestionGenerator.new()
 var lost = false
 var current_pipe
+var target_score
 
 func _ready():
 	spawn_interval = [4, 3, 3][difficulty]
+	target_score = [10, 15, 20][difficulty]
+	$HUDStage2.target = target_score
 	$HUDStage2.update_score(score)
 	spawn_pipe()
 	current_pipe = pipes[0]
+	
+	if $Bird.powerup_1_available:
+		$PowerUpHud.show_powerup_1()
+	if $Bird.powerup_2_available:
+		$PowerUpHud.show_powerup_2()
+	if $Bird.powerup_3_available:
+		$PowerUpHud.show_powerup_3()
 
 func isWin():
 	return score >= [10, 15, 20][difficulty]
@@ -60,6 +71,10 @@ func _process(delta):
 			if not current_pipe.is_hit:
 				score += 1
 				$HUDStage2.update_score(score)
+				coin += 1
+				if $Bird.double_coin:
+					coin += 1
+				$HUDStage2.update_coin(coin)
 			current_pipe = pipes[1] if pipes.size() > 1 else null
 	elif pipes.size() > 1:
 		current_pipe = pipes[1]
@@ -83,3 +98,15 @@ func spawn_pipe():
 func _on_bird_collide() -> void:
 	get_tree().call_group("pipe_collision", "stop")
 	lost = true
+
+
+func _on_bird_powerup_1_activated() -> void:
+	$PowerUpHud.animate_powerup_1()
+
+
+func _on_bird_powerup_2_activated() -> void:
+	$PowerUpHud.animate_powerup_2()
+
+
+func _on_bird_powerup_3_activated() -> void:
+	$PowerUpHud.animate_powerup_3()

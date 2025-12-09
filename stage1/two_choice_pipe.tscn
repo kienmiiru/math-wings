@@ -19,7 +19,7 @@ size = Vector2(32, 150)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acfjr"]
 size = Vector2(32, 150)
 
-[node name="TwoChoicePipe" type="Area2D" groups=["pipe_collision"]]
+[node name="TwoChoicePipe" type="Area2D" groups=["pipe_collision", "two_choice_pipe"]]
 collision_mask = 0
 script = ExtResource("1_knw33")
 

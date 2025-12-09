@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3w4yev7v4m5f"
+path="res://.godot/imported/boss voice (mp3cut.net).mp3-eb993c9a1ca20e3133d25146ef9f5e16.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/boss voice (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/boss voice (mp3cut.net).mp3-eb993c9a1ca20e3133d25146ef9f5e16.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

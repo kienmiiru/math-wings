@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cuxdc162kncle"]
+[gd_scene load_steps=52 format=3 uid="uid://cuxdc162kncle"]
 
 [ext_resource type="Script" uid="uid://ba4vgnoa1emux" path="res://bird.gd" id="1_crnqq"]
 [ext_resource type="Texture2D" uid="uid://bhbxwf2f4btqa" path="res://assets/player/player_idle.png" id="2_crnqq"]
@@ -21,6 +21,31 @@
 [ext_resource type="Texture2D" uid="uid://bd3r1htbq7txw" path="res://assets/player/player_shoot/player_shoot6.png" id="16_06prv"]
 [ext_resource type="Texture2D" uid="uid://c0hdnn6mc2hk6" path="res://assets/player/player_shoot/player_shoot7.png" id="17_ixa13"]
 [ext_resource type="Texture2D" uid="uid://lxgy268hsr01" path="res://assets/player/player_shoot/player_shoot8.png" id="18_gpy27"]
+[ext_resource type="Texture2D" uid="uid://bwuvicdaesdj5" path="res://assets/efek_lambat/efek lambat1.png" id="22_gpy27"]
+[ext_resource type="Texture2D" uid="uid://de4uhgldhacpd" path="res://assets/efek_lambat/efek lambat2.png" id="23_s7npx"]
+[ext_resource type="Texture2D" uid="uid://cca530k1ex4f5" path="res://assets/efek_lambat/efek lambat3.png" id="24_tsvpm"]
+[ext_resource type="Texture2D" uid="uid://cv0k1ifeinjai" path="res://assets/efek_lambat/efek lambat4.png" id="25_bvnmh"]
+[ext_resource type="Texture2D" uid="uid://cmxq06wvjrrxn" path="res://assets/shield/shield1.png" id="26_moff3"]
+[ext_resource type="Texture2D" uid="uid://cfdh1w6jac13x" path="res://assets/shield/shield2.png" id="27_a2m84"]
+[ext_resource type="Texture2D" uid="uid://c0pxduw3vefks" path="res://assets/shield/shield3.png" id="28_ag5uu"]
+[ext_resource type="Texture2D" uid="uid://ou4yw528lhd4" path="res://assets/shield/shield4.png" id="29_auu8c"]
+[ext_resource type="Texture2D" uid="uid://b0vtdtest4voo" path="res://assets/shield/shield5.png" id="30_xv2u4"]
+[ext_resource type="Texture2D" uid="uid://cvuq0opcwppxt" path="res://assets/shield/shield6.png" id="31_mh0gk"]
+[ext_resource type="Texture2D" uid="uid://cfah3n27axtk6" path="res://assets/shield/shield7.png" id="32_1ngr8"]
+[ext_resource type="Texture2D" uid="uid://lpp1e1x35ok2" path="res://assets/shield/shield8.png" id="33_hncrt"]
+[ext_resource type="Texture2D" uid="uid://cv17q2m2rlubn" path="res://assets/shield/shield9.png" id="34_lovd8"]
+[ext_resource type="Texture2D" uid="uid://bada0pc7j11hu" path="res://assets/shield/shield10.png" id="35_rmha7"]
+[ext_resource type="Texture2D" uid="uid://cu7cobeyhu3yo" path="res://assets/shield/shield11.png" id="36_mls06"]
+[ext_resource type="Texture2D" uid="uid://dhkux3rqru17a" path="res://assets/shield/shield12.png" id="37_m2uj3"]
+[ext_resource type="Texture2D" uid="uid://cbu0bg1ofq7ek" path="res://assets/shield/shield13.png" id="38_uj6a7"]
+[ext_resource type="Texture2D" uid="uid://drpe7krilih1l" path="res://assets/shield/shield14.png" id="39_83hhl"]
+[ext_resource type="Texture2D" uid="uid://btbunb3rj2gxx" path="res://assets/shield/shield15.png" id="40_5sr0u"]
+[ext_resource type="Texture2D" uid="uid://bsf2len1j2mrv" path="res://assets/shield/shield16.png" id="41_i2cru"]
+[ext_resource type="Texture2D" uid="uid://vxiu4wl2a0e5" path="res://assets/shield/shield17.png" id="42_0e64q"]
+[ext_resource type="Texture2D" uid="uid://wesrl6d7l1yg" path="res://assets/efek_koin/efek koin1.png" id="43_xv2u4"]
+[ext_resource type="Texture2D" uid="uid://dh47layip75wj" path="res://assets/efek_koin/efek koin2.png" id="44_mh0gk"]
+[ext_resource type="Texture2D" uid="uid://btb86a5adt1cj" path="res://assets/efek_koin/efek koin3.png" id="45_1ngr8"]
+[ext_resource type="Texture2D" uid="uid://dg22mviuhaaqu" path="res://assets/efek_koin/efek koin4.png" id="46_hncrt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a7h38"]
 animations = [{
@@ -109,6 +134,105 @@ animations = [{
 radius = 17.0
 height = 36.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_sf7xk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_gpy27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_s7npx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_tsvpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_bvnmh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yvlh4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_moff3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_a2m84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ag5uu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_auu8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_xv2u4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_mh0gk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_1ngr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_hncrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_lovd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_rmha7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_mls06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_m2uj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_uj6a7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_83hhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_5sr0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_i2cru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_0e64q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lovd8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_xv2u4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_mh0gk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_1ngr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_hncrt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Bird" type="Area2D"]
 collision_layer = 0
 script = ExtResource("1_crnqq")
@@ -125,5 +249,23 @@ frame_progress = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_j88tq")
+
+[node name="Slowdown" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(3.8146973e-06, 3.8146973e-06)
+scale = Vector2(0.4765625, 0.4765625)
+sprite_frames = SubResource("SpriteFrames_sf7xk")
+
+[node name="Shield" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(1.4375, 1.4375)
+sprite_frames = SubResource("SpriteFrames_yvlh4")
+speed_scale = 3.0
+
+[node name="Coin" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-1, -15)
+scale = Vector2(0.5625, 0.5625)
+sprite_frames = SubResource("SpriteFrames_lovd8")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

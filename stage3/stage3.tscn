@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://4q682kxc1nqy"]
+[gd_scene load_steps=7 format=3 uid="uid://4q682kxc1nqy"]
 
 [ext_resource type="Script" uid="uid://bafef1ii2fro0" path="res://stage3/stage3.gd" id="1_kn3cg"]
 [ext_resource type="Texture2D" uid="uid://b6dbnaox55mch" path="res://assets/background/backgrounddiam.png" id="2_cxt1b"]
 [ext_resource type="PackedScene" uid="uid://dpu16fqusxgun" path="res://stage3/hud_stage3.tscn" id="2_tftyt"]
 [ext_resource type="PackedScene" uid="uid://cuxdc162kncle" path="res://bird.tscn" id="3_cxt1b"]
 [ext_resource type="PackedScene" uid="uid://b2g0nvvgrj2g8" path="res://floor_ceil.tscn" id="5_uco0a"]
+[ext_resource type="PackedScene" uid="uid://bc4t58534v7ax" path="res://power_up_hud.tscn" id="6_al2rw"]
 
 [node name="Stage3" type="Node"]
 script = ExtResource("1_kn3cg")
@@ -24,3 +25,9 @@ position = Vector2(59, 230)
 [node name="Ceil" parent="." instance=ExtResource("5_uco0a")]
 position = Vector2(720, 480)
 rotation = 3.1415927
+
+[node name="PowerUpHud" parent="." instance=ExtResource("6_al2rw")]
+
+[connection signal="powerup_1_activated" from="Bird" to="." method="_on_bird_powerup_1_activated"]
+[connection signal="powerup_2_activated" from="Bird" to="." method="_on_bird_powerup_2_activated"]
+[connection signal="powerup_3_activated" from="Bird" to="." method="_on_bird_powerup_3_activated"]
