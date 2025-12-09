@@ -14,12 +14,17 @@ var powerup_1_available = true
 var powerup_2_available = true
 var powerup_3_available = true
 
+@onready var char_rocket = preload('res://assets/sound/Character kena ledakan roket.mp3')
+@onready var char_died = preload('res://assets/sound/Character mati (mp3cut.net).mp3')
+@onready var char_jump = preload('res://assets/sound/jetpack jump.mp3')
+
 func _physics_process(delta):
 	velocity.y += GRAVITY * delta
 
 	if Input.is_action_just_pressed("flap") and alive:
 		velocity.y = JUMP_FORCE
 		$AnimatedSprite2D.play('flap')
+		AudioPlayer.play_FX(char_jump)
 		
 
 	position.y += velocity.y * delta
@@ -65,6 +70,8 @@ func take_damage(amount: float):
 		return
 	hp -= amount
 	if hp <= 0.0:
+		AudioPlayer.play_FX(char_died)
+		deactivate_slowdown()
 		hp = 0.0
 		alive = false
 		emit_signal("collide")
@@ -79,6 +86,7 @@ func _on_area_entered(area: Area2D) -> void:
 			#if child is CollisionShape2D:
 				#child.set_deferred("disabled", true)
 	if area.is_in_group("bullet_collision") && alive && not area.is_hit:
+		AudioPlayer.play_FX(char_rocket)
 		area.is_hit = true
 		area.queue_free()
 		take_damage(0.10)
@@ -88,6 +96,7 @@ func _on_area_entered(area: Area2D) -> void:
 		area.is_hit = true
 
 	if area.is_in_group("missile") && alive:
+		AudioPlayer.play_FX(char_rocket)
 		take_damage(0.10)
 		area.queue_free()
 		area.is_hit = true

@@ -94,7 +94,8 @@ func _process(delta):
 		# Attack phase handled by boss and laser logic
 		pass
 	elif phase == 2:
-		print('win')
+		#print('win')
+		pass
 
 func spawn_standard_pipe():
 	var pipe = standard_pipe_scene.instantiate()

@@ -5,6 +5,8 @@ extends Node2D
 var fire_timer := 0.0
 @export var shooting_power := 400.0
 
+@onready var bullet_sfx = preload("res://assets/sound/Boss Canon (mp3cut.net).mp3")
+
 var target: Node2D = null
 var hp := 1.0 # 100% HP
 var alive := true
@@ -35,6 +37,7 @@ func _process(delta):
 		fire_timer = 0.0
 
 func shoot_at_target():
+	AudioPlayer.play_FX(bullet_sfx)
 	if target == null:
 		return
 	var bullet = bullet_scene.instantiate()

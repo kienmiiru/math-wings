@@ -10,6 +10,8 @@ var pos_idx = -1
 signal attack_complete
 signal died
 
+@onready var rocket_sfx = preload("res://assets/sound/Boss rocket launch (mp3cut.net).mp3")
+
 func _ready():
 	hp = 1.0
 	position = initial_position
@@ -22,6 +24,7 @@ func start_attack():
 	$AnimatedSprite2D.play()
 
 func fire_missile():
+	AudioPlayer.play_FX(rocket_sfx)
 	var missile = missile_scene.instantiate()
 	# Tembakkan missile dari depan boss
 	missile.global_position = global_position + Vector2(-40, 0)

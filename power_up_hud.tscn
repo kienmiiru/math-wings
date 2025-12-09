@@ -271,7 +271,7 @@ offset_right = 51.0
 offset_bottom = 469.49997
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("51_7arxi")
-text = "x"
+text = "z"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -282,7 +282,7 @@ offset_right = 122.0
 offset_bottom = 470.49997
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("51_7arxi")
-text = "y"
+text = "x"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -293,7 +293,7 @@ offset_right = 195.0
 offset_bottom = 470.49997
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("51_7arxi")
-text = "z"
+text = "c"
 horizontal_alignment = 1
 vertical_alignment = 1
 

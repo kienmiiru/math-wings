@@ -12,6 +12,8 @@ var pos_idx = -1
 signal attack_complete
 signal died
 
+@onready var laser_sfx = preload("res://assets/sound/Boss Laser (mp3cut.net).mp3")
+
 func _ready():
 	hp = 1.0
 	position = initial_position
@@ -30,6 +32,7 @@ func place_laser():
 	get_parent().add_child(laser)
 
 func activate_lasers():
+	AudioPlayer.play_FX(laser_sfx)
 	for idx in range(lasers.size()):
 		if idx != disabled_laser_idx:
 			lasers[idx].activate()

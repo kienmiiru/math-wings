@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 func _on_back_button_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			AudioPlayer.play_button_click_FX()
 			get_tree().change_scene_to_file("res://screens/stage_menu.tscn")
 
 
