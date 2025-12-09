@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://4q682kxc1nqy"]
+[gd_scene load_steps=6 format=3 uid="uid://4q682kxc1nqy"]
 
 [ext_resource type="Script" uid="uid://bafef1ii2fro0" path="res://stage3/stage3.gd" id="1_kn3cg"]
 [ext_resource type="Texture2D" uid="uid://b6dbnaox55mch" path="res://assets/background/backgrounddiam.png" id="2_cxt1b"]
 [ext_resource type="PackedScene" uid="uid://dpu16fqusxgun" path="res://stage3/hud_stage3.tscn" id="2_tftyt"]
 [ext_resource type="PackedScene" uid="uid://cuxdc162kncle" path="res://bird.tscn" id="3_cxt1b"]
+[ext_resource type="PackedScene" uid="uid://b2g0nvvgrj2g8" path="res://floor_ceil.tscn" id="5_uco0a"]
 
 [node name="Stage3" type="Node"]
 script = ExtResource("1_kn3cg")
@@ -17,3 +18,9 @@ texture = ExtResource("2_cxt1b")
 
 [node name="Bird" parent="." instance=ExtResource("3_cxt1b")]
 position = Vector2(59, 230)
+
+[node name="Floor" parent="." instance=ExtResource("5_uco0a")]
+
+[node name="Ceil" parent="." instance=ExtResource("5_uco0a")]
+position = Vector2(720, 480)
+rotation = 3.1415927

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://7er1bcvsg3dt"]
+[gd_scene load_steps=8 format=3 uid="uid://7er1bcvsg3dt"]
 
 [ext_resource type="Script" uid="uid://det4r32421t2j" path="res://stage4/stage4.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://puibd4woc2e" path="res://stage4/boss_1.tscn" id="2_8ta65"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dgr7jftxgbvr4" path="res://assets/background/backgroundboss1.png" id="2_l5kmx"]
 [ext_resource type="PackedScene" uid="uid://cw5n22sqwj0rc" path="res://stage4/hud_stage4.tscn" id="4_hud_stage4"]
 [ext_resource type="PackedScene" path="res://bird_weapon.tscn" id="5_neo5x"]
+[ext_resource type="PackedScene" uid="uid://b2g0nvvgrj2g8" path="res://floor_ceil.tscn" id="7_cc6e3"]
 
 [node name="Stage4" type="Node"]
 script = ExtResource("1")
@@ -23,6 +24,12 @@ position = Vector2(638, 237)
 position = Vector2(68, 231)
 
 [node name="BirdWeapon" parent="Bird" instance=ExtResource("5_neo5x")]
+
+[node name="Floor" parent="." instance=ExtResource("7_cc6e3")]
+
+[node name="Ceil" parent="." instance=ExtResource("7_cc6e3")]
+position = Vector2(720, 480)
+rotation = 3.1415927
 
 [connection signal="attack_complete" from="Boss1" to="." method="_on_boss_1_attack_complete"]
 [connection signal="died" from="Boss1" to="." method="_on_boss_1_died"]

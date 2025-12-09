@@ -31,7 +31,29 @@ func spawn_phase():
 	phase = 0
 	standard_made = 0
 
+func isWin():
+	return score >= [10, 15, 20][difficulty]
+
+func isLose():
+	return lost
+
 func _process(delta):
+	if isWin():
+		var end_screen_scene = load("res://end_screen.tscn").instantiate()
+		end_screen_scene.is_win = true
+		end_screen_scene.coin = score
+		get_tree().get_root().add_child(end_screen_scene)
+		queue_free()
+		get_tree().current_scene = end_screen_scene
+
+	if isLose():
+		var end_screen_scene = load("res://end_screen.tscn").instantiate()
+		end_screen_scene.is_win = false
+		end_screen_scene.coin = score
+		get_tree().get_root().add_child(end_screen_scene)
+		queue_free()
+		get_tree().current_scene = end_screen_scene
+
 	if lost:
 		return
 	spawn_timer += delta

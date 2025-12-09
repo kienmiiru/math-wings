@@ -73,3 +73,7 @@ func _on_area_entered(area: Area2D) -> void:
 		take_damage(0.10)
 		area.queue_free()
 		area.is_hit = true
+	
+	if area.is_in_group("floor") && alive:
+		take_damage(1)
+		area.queue_free()

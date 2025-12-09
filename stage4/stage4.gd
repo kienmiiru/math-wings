@@ -14,6 +14,8 @@ var lost := false
 var correct_answer_idx = 0
 var bird = null
 var question_generator = QuestionGenerator.new()
+var current_pipe
+var score = 0
 
 func _ready():
 	bird = $Bird
@@ -29,7 +31,29 @@ func start_pipe_phase():
 	standard_made = 0
 	pipes.clear()
 
+func isWin():
+	return $Boss1.hp <= 0
+
+func isLose():
+	return lost
+
 func _process(delta):
+	if isWin():
+		var end_screen_scene = load("res://end_screen.tscn").instantiate()
+		end_screen_scene.is_win = true
+		end_screen_scene.coin = score
+		get_tree().get_root().add_child(end_screen_scene)
+		queue_free()
+		get_tree().current_scene = end_screen_scene
+
+	if isLose():
+		var end_screen_scene = load("res://end_screen.tscn").instantiate()
+		end_screen_scene.is_win = false
+		end_screen_scene.coin = score
+		get_tree().get_root().add_child(end_screen_scene)
+		queue_free()
+		get_tree().current_scene = end_screen_scene
+
 	if lost:
 		return
 	spawn_timer += delta
@@ -40,6 +64,20 @@ func _process(delta):
 			standard_made += 1
 		elif standard_made == standard_pipe_to_spawn and spawn_timer > 1.0:
 			start_attack_phase()
+
+		# Hapus pipe yang sudah lewat layar kiri
+		for pipe in pipes:
+			if pipe.position.x < -100:
+				pipes.erase(pipe)
+				pipe.queue_free()
+		
+		if current_pipe and current_pipe.position.x <= $Bird.position.x:
+			if not current_pipe.is_hit:
+				score += 1
+				$HUDStage4.update_score(score)
+			current_pipe = pipes[1] if pipes.size() > 1 else null
+		elif not current_pipe and pipes.size() > 1:
+			current_pipe = pipes[1]
 	elif phase == 1:
 		# Attack phase handled by boss and laser logic
 		pass
@@ -51,6 +89,8 @@ func spawn_standard_pipe():
 	pipe.position = Vector2(700, randi_range(160, 320))
 	add_child(pipe)
 	pipes.append(pipe)
+	if current_pipe == null:
+		current_pipe = pipe
 
 func start_attack_phase():
 	phase = 1

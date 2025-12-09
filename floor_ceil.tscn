@@ -1,0 +1,108 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2g0nvvgrj2g8"]
+
+[ext_resource type="Texture2D" uid="uid://n8yp3gimri2v" path="res://assets/lantai.png" id="1_2m4q0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2m4q0"]
+size = Vector2(720, 8)
+
+[node name="FloorCeil" type="Area2D" groups=["floor"]]
+
+[node name="Lantai" type="Sprite2D" parent="."]
+position = Vector2(16, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai2" type="Sprite2D" parent="."]
+position = Vector2(48, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai3" type="Sprite2D" parent="."]
+position = Vector2(80, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai4" type="Sprite2D" parent="."]
+position = Vector2(112, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai5" type="Sprite2D" parent="."]
+position = Vector2(144, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai6" type="Sprite2D" parent="."]
+position = Vector2(176, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai7" type="Sprite2D" parent="."]
+position = Vector2(208, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai8" type="Sprite2D" parent="."]
+position = Vector2(240, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai9" type="Sprite2D" parent="."]
+position = Vector2(272, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai10" type="Sprite2D" parent="."]
+position = Vector2(304, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai11" type="Sprite2D" parent="."]
+position = Vector2(336, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai12" type="Sprite2D" parent="."]
+position = Vector2(368, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai13" type="Sprite2D" parent="."]
+position = Vector2(400, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai14" type="Sprite2D" parent="."]
+position = Vector2(432, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai15" type="Sprite2D" parent="."]
+position = Vector2(464, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai16" type="Sprite2D" parent="."]
+position = Vector2(496, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai17" type="Sprite2D" parent="."]
+position = Vector2(528, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai18" type="Sprite2D" parent="."]
+position = Vector2(560, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai19" type="Sprite2D" parent="."]
+position = Vector2(592, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai20" type="Sprite2D" parent="."]
+position = Vector2(624, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai21" type="Sprite2D" parent="."]
+position = Vector2(656, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai22" type="Sprite2D" parent="."]
+position = Vector2(688, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai23" type="Sprite2D" parent="."]
+position = Vector2(720, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="Lantai24" type="Sprite2D" parent="."]
+position = Vector2(752, 472)
+texture = ExtResource("1_2m4q0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(360, 488)
+shape = SubResource("RectangleShape2D_2m4q0")

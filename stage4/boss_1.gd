@@ -61,7 +61,7 @@ func take_damage(amount: float):
 	hp -= amount
 	$HPBar.value = hp*100
 	if hp <= 0:
-		queue_free()
+		#queue_free()
 		died.emit()
 
 func _on_mover_timer_timeout() -> void:

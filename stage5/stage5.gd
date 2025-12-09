@@ -16,7 +16,27 @@ func _ready():
 	spawn_pipe()
 	current_pipe = pipes[0]
 
+func isWin():
+	return $Boss2.hp <= 0
+
+func isLose():
+	return lost
+
 func _process(delta):
+	if isWin():
+		var end_screen_scene = load("res://end_screen.tscn").instantiate()
+		end_screen_scene.is_win = true
+		get_tree().get_root().add_child(end_screen_scene)
+		queue_free()
+		get_tree().current_scene = end_screen_scene
+
+	if isLose():
+		var end_screen_scene = load("res://end_screen.tscn").instantiate()
+		end_screen_scene.is_win = false
+		get_tree().get_root().add_child(end_screen_scene)
+		queue_free()
+		get_tree().current_scene = end_screen_scene
+
 	spawn_timer += delta
 	if spawn_timer > spawn_interval and not lost:
 		spawn_pipe()

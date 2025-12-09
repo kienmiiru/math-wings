@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=720
 window/size/viewport_height=480
-window/size/mode=1
 window/stretch/mode="canvas_items"
 
 [global_group]
@@ -29,6 +28,7 @@ bullet_collision=""
 turret=""
 laser=""
 missile=""
+floor=""
 
 [input]
 
