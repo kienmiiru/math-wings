@@ -28,6 +28,7 @@ rotation = 3.1415927
 
 [node name="PowerUpHud" parent="." instance=ExtResource("6_al2rw")]
 
+[connection signal="collide" from="Bird" to="." method="_on_bird_collide"]
 [connection signal="powerup_1_activated" from="Bird" to="." method="_on_bird_powerup_1_activated"]
 [connection signal="powerup_2_activated" from="Bird" to="." method="_on_bird_powerup_2_activated"]
 [connection signal="powerup_3_activated" from="Bird" to="." method="_on_bird_powerup_3_activated"]

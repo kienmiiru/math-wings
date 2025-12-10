@@ -58,6 +58,7 @@ func _process(delta):
 		get_tree().current_scene = end_screen_scene
 
 	if isLose():
+		print('kalah')
 		var end_screen_scene = load("res://end_screen.tscn").instantiate()
 		end_screen_scene.is_win = false
 		end_screen_scene.coin = score
